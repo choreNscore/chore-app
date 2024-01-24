@@ -2,6 +2,9 @@
 
 This is an application for managing chores.
 
+## Prerequisites
+To run this web application you must have [node.js (including npm)](https://nodejs.org/en/download/current) and [firebase cli](https://firebase.google.com/docs/cli) installed on your machine.
+
 ## To run
 
 ```
@@ -11,5 +14,5 @@ i (for ios simulator)
 ```
 
 ## Reference Documentation
-React Native: https://reactnative.dev 
+Expo: https://docs.expo.dev
 Firestore: https://firebase.google.com/docs/firestore/quickstart

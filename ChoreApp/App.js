@@ -5,21 +5,21 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Misc. Pages
-import SignUp from './SignUp';
-import Login from './Login';
-import ProfileSelection from './ProfileSelection';
+import SignUp from './src/SignUp';
+import Login from './src/Login';
+import ProfileSelection from './src/ProfileSelection';
 
 // Parent Pages
-import HomePage from './Parent/HomePage';
-import CreateChorePage from './Parent/CreateChorePage';
-import ChoresListPage from './Parent/ChoresListPage';
-import AddFamilyMemberPage from './Parent/AddFamilyMemberPage';
-import ChoreViewPage from './Parent/ChoreViewPage';
+import HomePage from './src/Parent/HomePage';
+import CreateChorePage from './src/Parent/CreateChorePage';
+import ChoresListPage from './src/Parent/ChoresListPage';
+import AddFamilyMemberPage from './src/Parent/AddFamilyMemberPage';
+import ChoreViewPage from './src/Parent/ChoreViewPage';
 
 // Child Pages
-import ChildHomePage from './Child/ChildHomePage';
-import ChildChoresListPage from './Child/ChildChoresListPage';
-import ChildChoreViewPage from './Child/ChildChoreViewPage';
+import ChildHomePage from './src/Child/ChildHomePage';
+import ChildChoresListPage from './src/Child/ChildChoresListPage';
+import ChildChoreViewPage from './src/Child/ChildChoreViewPage';
 
 // Tab Bar for Parent account, has access to all Parent pages
 const ParentsTab = createBottomTabNavigator();
