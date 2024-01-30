@@ -1,5 +1,5 @@
-import { Pressable } from "react-native";
-import { Text } from "react-native";
+import { Pressable, Text } from "react-native";
+import styles from '../styles';
 import { useNavigation } from '@react-navigation/native';
 import {Avatar} from "antd";
 
@@ -25,12 +25,21 @@ function User (props){
                     borderRadius: 15,
                     padding: 6,
                     alignItems: 'center',
+                    margin: 5,
                 }}>
                 
-                    <Avatar>
+                    <Avatar 
+                        size={{
+                            xs: 24,
+                            sm: 32,
+                            md: 40,
+                            lg: 64,
+                            xl: 80,
+                            xxl: 100,
+                          }}>
                         {userParams.userName[0]}
                     </Avatar>
-                    <Text style={{ color: 'green', textAlign: 'center' }}>{userName}</Text>
+                    <Text style={styles.text1}>{userName}</Text>
                 
             </Pressable>
   );

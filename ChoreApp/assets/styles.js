@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         width:'100%', 
-        height:'5%',
+        height:'8%',
         flexDirection:'row', 
         justifyContent:'flex-end', 
         justifyContent:'space-between',
@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
+    contentHorizontal: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'space-evenly',
+      },
     container: {
       flex: 1,
       flexDirection: 'column',
@@ -27,9 +35,15 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     text1: {
-      fontSize: 20,
+      fontSize: 60,
+      color:'green',
       textAlign: 'center',
+    },
+    headerText: {
+      fontSize: 22,
+      color:'white',
       margin: 10,
+      textAlign: 'center',
     },
   });
 

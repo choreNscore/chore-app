@@ -12,12 +12,12 @@ function ProfileSelection () {
     user3: {userID: 3, userName: "chacha", isParent: false, icon: "icon3"},
 }
     return (
-        <View style={styles.content}>
-            <View>
-                <Text style={{fontSize: 60, color:'green'}}>Select a Profile</Text>
-            </View>
+        <View style={{flex:1, justifyContent:'center'}}>
             
-            <View style = {{flexDirection:'row'}}>
+            <Text style = {styles.text1}>Select a Profile</Text>
+            
+            
+            <View style = {styles.contentHorizontal}>
             {/* Map for users in a single family template */}
             {
                 Object.keys(users).map((key) => {

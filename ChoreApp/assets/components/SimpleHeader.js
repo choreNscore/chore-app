@@ -9,9 +9,9 @@ function SimpleHeader(props) {
     
     return (
         <View style={styles.header}>
-            <Text style={{ color: 'green', textAlign: 'center' }}>{userName}</Text>
+            <Text style={styles.headerText}>{userName}</Text>
             <Pressable onPress={() => navigation.navigate('ProfileSelection')}>
-            <Avatar>
+            <Avatar size="large">
                 {userName[0]}
             </Avatar> 
             </Pressable>
