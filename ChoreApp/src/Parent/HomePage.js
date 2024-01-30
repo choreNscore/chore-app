@@ -1,21 +1,30 @@
-import { View, Text, Pressable } from 'react-native';
+import { View, Text} from 'react-native';
+import SimpleHeader from '../../assets/components/SimpleHeader';
+import styles from '../../assets/styles';
 
 
 function HomePage(props) {
-  const { userID, userName, isParent, icon } = props;
+    const { userID, userName, isParent, icon } = props;
   
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Hello Parent {userName}</Text>
-      <Text>userID: {userID}</Text>
-      <Text>isParent: {isParent}</Text>
-      <Text>icon: {icon}</Text>
-      <Pressable
-        onPress={() => navigation.navigate('ProfileSelection')}>
-        <Text>Change User</Text>
-      </Pressable>
-    </View>
-  );
+    return (
+      <View style={styles.container}>
+        
+        {/* Header */}
+        <SimpleHeader userName={userName} />
+
+        {/* Page Content */}
+        <View style={styles.content}>
+            <Text style={styles.text1} >userID: {userID}</Text>
+            <Text style={styles.text1} >isParent: {isParent.toString()}</Text>
+            <Text style={styles.text1} >icon: {icon}</Text>
+        </View>
+        
+      </View>
+    );
 }
 
+
 export default HomePage;
+
+
+    

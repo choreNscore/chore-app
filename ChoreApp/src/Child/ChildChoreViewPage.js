@@ -1,12 +1,21 @@
 import { View, Text } from 'react-native';
+import SimpleHeader from '../../assets/components/SimpleHeader';
+import styles from '../../assets/styles';
 
-
-function ChoreViewPage() {
+function ChoreViewPage(props) {
+    const { userName } = props;
+  
     return (
-        <div>
-            <h1>Child ChoreView</h1>
-        </div>
-    )
+        <View style={styles.container}>
+            <SimpleHeader userName={userName} />
+            
+            <View style={styles.content}>
+                <Text style={styles.text1}>Single Chore</Text>
+            </View>
+        
+        </View>
+    );
+
 }
 
 export default ChoreViewPage;

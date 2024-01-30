@@ -1,19 +1,39 @@
 import { Pressable, View, Text, } from "react-native";
-import User from "./UserComponent";
+import User from "../assets/components/UserComponent";
+import styles from "../assets/styles";
+
 
 function ProfileSelection () {
-    const user1 = {userID: 1, userName: "riri", isParent: true, icon: "icon1"};
-    const user2 = {userID: 2, userName: "laykilla", isParent: false, icon: "icon2"};
-    const user3 = {userID: 3, userName: "chacha", isParent: false, icon: "icon3"};
-    return (
-        <View style= {{flex:1, flexDirection:'row', justifyContent:'space-between', alignItems:'center', margin:'10%'}}>
-            {/* Placeholder for Parent Profile Selection */}
-            <User {...user1}/>
-                            
-            {/* Placeholder for Child Profile Selection */}
-            <User {...user2}/>
-            <User {...user3} />
     
+    // Mock users for UI testing
+    const users = {
+    user1: {userID: 1, userName: "riri", isParent: true, icon: "icon1"},
+    user2:{userID: 2, userName: "laykilla", isParent: false, icon: "icon2"},
+    user3: {userID: 3, userName: "chacha", isParent: false, icon: "icon3"},
+}
+    return (
+        <View style={styles.content}>
+            <View>
+                <Text style={{fontSize: 60, color:'green'}}>Select a Profile</Text>
+            </View>
+            
+            <View style = {{flexDirection:'row'}}>
+            {/* Map for users in a single family template */}
+            {
+                Object.keys(users).map((key) => {
+                    const {userID, userName, isParent, icon} = users[key];
+                    return (
+                        <User
+                            key={key}
+                            userID={userID}
+                            userName={userName}
+                            isParent={isParent}
+                            icon={icon}
+                        />
+                    )
+                })
+            }
+            </View>
         </View>
     )
 }
