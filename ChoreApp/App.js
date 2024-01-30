@@ -23,10 +23,13 @@ import ChildChoreViewPage from './src/Child/ChildChoreViewPage';
 
 // Tab Bar for Parent account, has access to all Parent pages
 const ParentsTab = createBottomTabNavigator();
-function ParentTabs() {
+function ParentTabs({route}) {
+  const { userID, userName, isParent, icon } = route.params;
   return (
     <ParentsTab.Navigator>
-      <ParentsTab.Screen name="ParentHome" component={HomePage} />
+      <ParentsTab.Screen name ="HomeScreen">
+        {(props) => <HomePage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>
       <ParentsTab.Screen name="CreateChore" component={CreateChorePage} />
       <ParentsTab.Screen name="ChoresList" component={ChoresListPage} />
       <ParentsTab.Screen name="AddFamilyMember" component={AddFamilyMemberPage} />
@@ -37,10 +40,13 @@ function ParentTabs() {
 
 // Tab Bar for Child account, has access to all Child pages
 const ChildsTab = createBottomTabNavigator();
-function ChildTabs() {
+function ChildTabs({route}) {
+  const { userID, userName, isParent, icon } = route.params;
   return (
     <ChildsTab.Navigator>
-      <ChildsTab.Screen name="ChildHome" component={ChildHomePage} />
+      <ChildsTab.Screen name="ChildHome">
+        {(props) => <ChildHomePage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ChildsTab.Screen>
       <ChildsTab.Screen name="ChildChoresList" component={ChildChoresListPage} />
       <ChildsTab.Screen name="ChildChoreView" component={ChildChoreViewPage} />
     </ChildsTab.Navigator>
@@ -54,7 +60,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="ProfileSelection" component={ProfileSelection} />
-        <Stack.Screen name="ChildHub" component={ChildTabs} />
+        <Stack.Screen name="ChildHub" component={ChildTabs}/>
         <Stack.Screen name="ParentHub" component={ParentTabs} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />

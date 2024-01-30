@@ -1,27 +1,18 @@
 import { Pressable, View, Text, } from "react-native";
+import User from "./UserComponent";
 
-function ProfileSelection ({navigation}) {
-  
+function ProfileSelection () {
+    const user1 = {userID: 1, userName: "riri", isParent: true, icon: "icon1"};
+    const user2 = {userID: 2, userName: "laykilla", isParent: false, icon: "icon2"};
+    const user3 = {userID: 3, userName: "chacha", isParent: false, icon: "icon3"};
     return (
-        <View style= {{flex:1, flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
+        <View style= {{flex:1, flexDirection:'row', justifyContent:'space-between', alignItems:'center', margin:'10%'}}>
             {/* Placeholder for Parent Profile Selection */}
-            
-            <Pressable
-                onPress={() => navigation.navigate('ParentHub')}
-                style={{borderRadius:300, padding:6, backgroundColor:'green' }}>
-               
-                <Text style = {{color:'white', textAlign: 'center'}}>Parent</Text>
-                
-            </Pressable>
-            
+            <User {...user1}/>
+                            
             {/* Placeholder for Child Profile Selection */}
-            <Pressable
-                onPress={() => navigation.navigate('ChildHub')}
-                style={{borderRadius:300, padding:6, backgroundColor:'green' }}>
-                
-                <Text style = {{color:'white'}}>Child</Text>
-                
-            </Pressable>
+            <User {...user2}/>
+            <User {...user3} />
     
         </View>
     )
