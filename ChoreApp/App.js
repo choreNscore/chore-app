@@ -22,40 +22,64 @@ import ChildChoresListPage from './src/Child/ChildChoresListPage';
 import ChildChoreViewPage from './src/Child/ChildChoreViewPage';
 
 // Tab Bar for Parent account, has access to all Parent pages
+// route params are accessible by all pages
+  //needs to be replaced by data queried from database
 const ParentsTab = createBottomTabNavigator();
-function ParentTabs() {
+function ParentTabs({route}) {
+  // these props should be passed in after sign up/ login
+  const { userID, userName, isParent, icon } = route.params;
   return (
     <ParentsTab.Navigator>
-      <ParentsTab.Screen name="ParentHome" component={HomePage} />
-      <ParentsTab.Screen name="CreateChore" component={CreateChorePage} />
-      <ParentsTab.Screen name="ChoresList" component={ChoresListPage} />
-      <ParentsTab.Screen name="AddFamilyMember" component={AddFamilyMemberPage} />
-      <ParentsTab.Screen name="ChoreView" component={ChoreViewPage} />  
+      <ParentsTab.Screen name ="HomeScreen" options={{headerShown:false}}>
+        {(props) => <HomePage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>
+      <ParentsTab.Screen name="CreateChore" options={{headerShown:false}}>
+        {(props) => <CreateChorePage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>
+      <ParentsTab.Screen name="ChoresList" options={{headerShown:false}}>
+        {(props) => <ChoresListPage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>
+      <ParentsTab.Screen name="AddFamilyMember" options={{headerShown:false}}>
+        {(props) => <AddFamilyMemberPage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>
+      <ParentsTab.Screen name="ChoreView" options={{headerShown:false}}>
+        {(props) => <ChoreViewPage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ParentsTab.Screen>  
     </ParentsTab.Navigator>
   )
   }
 
 // Tab Bar for Child account, has access to all Child pages
+// route params are accessible by all pages
+  //needs to be replaced by data queried from database
 const ChildsTab = createBottomTabNavigator();
-function ChildTabs() {
+function ChildTabs({route}) {
+  // these props should be passed in after sign up/ login
+  const { userID, userName, isParent, icon } = route.params;
   return (
     <ChildsTab.Navigator>
-      <ChildsTab.Screen name="ChildHome" component={ChildHomePage} />
-      <ChildsTab.Screen name="ChildChoresList" component={ChildChoresListPage} />
-      <ChildsTab.Screen name="ChildChoreView" component={ChildChoreViewPage} />
+      <ChildsTab.Screen name="ChildHome" options={{headerShown:false}}>
+        {(props) => <ChildHomePage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ChildsTab.Screen>
+      <ChildsTab.Screen name="ChildChoresList" options={{headerShown:false}}>
+        {(props) => <ChildChoresListPage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ChildsTab.Screen>
+      <ChildsTab.Screen name="ChildChoreView" options={{headerShown:false}}>
+        {(props) => <ChildChoreViewPage {...props} userID={userID} userName={userName} isParent={isParent} icon={icon} />}
+      </ChildsTab.Screen>
     </ChildsTab.Navigator>
   )
   }
 
-// Stack Navigator for all pages, navigates to ProfileSelection page first
+// Stack Navigator for login, signup, profile selection and parent and child hubs
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="ProfileSelection" component={ProfileSelection} />
-        <Stack.Screen name="ChildHub" component={ChildTabs} />
-        <Stack.Screen name="ParentHub" component={ParentTabs} />
+        <Stack.Screen name="ProfileSelection" component={ProfileSelection} options={{headerShown:false}} />
+        <Stack.Screen name="ChildHub" component={ChildTabs} options={{headerShown:false}} />
+        <Stack.Screen name="ParentHub" component={ParentTabs} options={{headerShown:false}} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
